@@ -53,11 +53,11 @@ function Chronicle() {
       <section className="px-4 max-w-5xl mx-auto">
         <header className="text-center mb-12">
           <p className="typewriter text-noir-gold tracking-[0.5em] text-xs">SECTION V</p>
-          <h1 className="headline-serif text-5xl md:text-6xl mt-2">The Chronicle</h1>
+          <h1 className="headline-serif text-3xl sm:text-5xl md:text-6xl mt-2">The Chronicle</h1>
           <p className="typewriter text-noir-gold/60 mt-3 text-sm">// PRIOR INVESTIGATIONS, AS REPORTED</p>
         </header>
 
-        <div className="space-y-10">
+        <div className="space-y-6 sm:space-y-10">
           {clippings.map((c, i) => (
             <motion.article
               key={c.headline}
@@ -65,15 +65,15 @@ function Chronicle() {
               whileInView={{ opacity: 1, y: 0, rotate: c.rotate }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.08 }}
-              className="paper relative p-6 md:p-8 max-w-3xl"
-              style={{ marginLeft: i % 2 ? "auto" : "0" }}
+              className="paper relative p-4 sm:p-6 md:p-8 max-w-3xl mx-auto sm:mx-0"
+              style={{ marginLeft: i % 2 ? "auto" : undefined }}
             >
               <span className="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-noir-blood shadow-lg ring-1 ring-black/40" />
               <div className="flex items-baseline justify-between border-b-4 border-double border-noir-ink/40 pb-2">
                 <span className="typewriter text-[10px] tracking-[0.4em]">THE DAILY LEDGER</span>
                 <span className="typewriter text-[10px] tracking-[0.3em]">{c.year}</span>
               </div>
-              <h2 className="headline-serif text-3xl md:text-4xl mt-3 leading-tight">{c.headline}</h2>
+              <h2 className="headline-serif text-xl sm:text-3xl md:text-4xl mt-3 leading-tight">{c.headline}</h2>
               <p className="typewriter text-xs uppercase tracking-widest text-noir-blood mt-2">{c.role}</p>
               <p className="mt-3 text-noir-ink leading-relaxed text-sm md:text-base columns-1 md:columns-2 gap-6">
                 {c.body}

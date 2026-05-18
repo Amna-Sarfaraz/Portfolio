@@ -30,11 +30,11 @@ function Lab() {
       <section className="px-4 max-w-6xl mx-auto magnify-cursor">
         <header className="text-center mb-10">
           <p className="typewriter text-noir-gold tracking-[0.5em] text-xs">SECTION III</p>
-          <h1 className="headline-serif text-5xl md:text-6xl mt-2">Fingerprint Lab</h1>
+          <h1 className="headline-serif text-3xl sm:text-5xl md:text-6xl mt-2">Fingerprint Lab</h1>
           <p className="typewriter text-noir-gold/60 mt-3 text-sm">// FORENSIC ANALYSIS — HOVER TO MAGNIFY</p>
         </header>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {skills.map((s, i) => (
             <motion.div
               key={s.name}

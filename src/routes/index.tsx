@@ -114,7 +114,7 @@ function Index() {
   const [opened, setOpened] = useState(false);
   return (
     <NoirShell>
-      <section id="hero" className="relative min-h-[88vh] flex items-center justify-center px-4 scroll-mt-28">
+      <section id="hero" className="relative min-h-[85vh] sm:min-h-[88vh] flex items-center justify-center px-3 sm:px-4 scroll-mt-20 sm:scroll-mt-28">
         {/* Rain behind */}
         <div className="rain" />
         {/* Desk lamp glow */}
@@ -124,12 +124,12 @@ function Index() {
           transition={{ duration: 2.5 }}
           className="lamp-glow"
         />
-        <div className="relative z-10 max-w-3xl text-center space-y-10">
+        <div className="relative z-10 max-w-3xl text-center space-y-6 sm:space-y-10">
           <motion.p
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="typewriter tracking-[0.5em] text-noir-gold text-xs"
+            className="typewriter tracking-[0.3em] sm:tracking-[0.5em] text-noir-gold text-[10px] sm:text-xs"
           >
             FILE No. 0451 — CONFIDENTIAL
           </motion.p>
@@ -147,20 +147,20 @@ function Index() {
             initial={{ y: 80, opacity: 0, rotate: -2 }}
             animate={opened ? { y: 0, opacity: 1, rotate: -1 } : {}}
             transition={{ type: "spring", stiffness: 60, damping: 14 }}
-            className="manila mx-auto max-w-md p-6 text-left"
+            className="manila mx-auto max-w-md p-4 sm:p-6 text-left"
           >
-            <div className="absolute -top-3 left-1/2 -translate-x-12 tape w-24 h-6" />
+            <div className="absolute -top-3 left-1/2 -translate-x-12 tape w-20 sm:w-24 h-5 sm:h-6" />
             <div className="border-b-2 border-noir-blood/40 pb-2 mb-3 flex items-center justify-between">
               <span className="typewriter text-[10px] tracking-widest">CASE FILE</span>
               <span className="typewriter text-[10px] tracking-widest">EYES ONLY</span>
             </div>
-            <h1 className="headline-serif text-3xl md:text-4xl font-black leading-tight text-noir-ink">
+            <h1 className="headline-serif text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-noir-ink">
               The Mystery of the<br/>Failing Pipeline
             </h1>
-            <p className="handwritten text-2xl text-noir-blood mt-3">
+            <p className="handwritten text-xl sm:text-2xl text-noir-blood mt-2 sm:mt-3">
               — files attached, proceed with caution.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3">
               <a
                 href="#cases"
                 className="typewriter bg-noir-black text-noir-paper px-5 py-2 text-xs tracking-widest hover:bg-noir-blood transition"
@@ -188,27 +188,27 @@ function Index() {
         </div>
       </section>
 
-      <section id="dossier" className="scroll-mt-28 px-4 py-16">
+      <section id="profile" className="scroll-mt-20 sm:scroll-mt-28 px-3 sm:px-4 py-10 sm:py-16">
         <div className="max-w-5xl mx-auto">
-          <header className="text-center mb-10">
-            <p className="typewriter text-noir-gold tracking-[0.5em] text-xs">SECTION II</p>
-            <h2 className="headline-serif text-5xl md:text-6xl mt-2">Profile</h2>
+          <header className="text-center mb-6 sm:mb-10">
+            <p className="typewriter text-noir-gold tracking-[0.3em] sm:tracking-[0.5em] text-[10px] sm:text-xs">SECTION II</p>
+            <h2 className="headline-serif text-3xl sm:text-5xl md:text-6xl mt-2">Profile</h2>
           </header>
           <motion.article
             initial={{ rotate: -1, y: 30, opacity: 0 }}
             whileInView={{ rotate: 0, y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="paper relative p-8 md:p-12"
+            className="paper relative p-5 sm:p-8 md:p-12"
           >
-            <div className="tape absolute -top-4 left-12 w-28 h-7" />
-            <div className="tape absolute -top-4 right-16 w-24 h-7" style={{ transform: "rotate(4deg)" }} />
+            <div className="tape absolute -top-4 left-6 sm:left-12 w-20 sm:w-28 h-6 sm:h-7" />
+            <div className="tape absolute -top-4 right-6 sm:right-16 w-16 sm:w-24 h-6 sm:h-7" style={{ transform: "rotate(4deg)" }} />
             <div className="space-y-5 text-noir-ink">
-              <div className="flex items-center justify-between gap-4">
-                <h3 className="headline-serif text-3xl">SUBJECT BRIEFING</h3>
-                <span className="stamp stamp-cleared">CLEARED</span>
+              <div className="flex items-center justify-between gap-2 sm:gap-4">
+                <h3 className="headline-serif text-xl sm:text-3xl">SUBJECT BRIEFING</h3>
+                <span className="stamp stamp-cleared text-base sm:text-2xl">CLEARED</span>
               </div>
               <div className="ledger-rule pb-4">
-                <h4 className="headline-serif text-4xl">Amna Muhammad</h4>
+                <h4 className="headline-serif text-2xl sm:text-4xl">Amna Muhammad</h4>
               </div>
               <p className="leading-relaxed text-base md:text-lg">
                 Software Engineering undergraduate at NED University, Karachi. Focused on AI systems,
@@ -239,13 +239,13 @@ function Index() {
                   EMAIL
                 </a>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3 pt-4">
                 {dossierStats.map((s) => (
-                  <div key={s.label} className="border-2 border-noir-ink/40 p-3 bg-noir-paper-dark/40">
+                  <div key={s.label} className="border-2 border-noir-ink/40 p-2 sm:p-3 bg-noir-paper-dark/40">
                     <div className="mb-3 inline-flex items-center justify-center rounded-full border border-noir-ink/30 p-2 text-noir-ink/80">
                       <s.icon className="h-5 w-5" strokeWidth={1.8} />
                     </div>
-                    <div className="headline-serif text-3xl text-noir-blood">{s.value}</div>
+                    <div className="headline-serif text-xl sm:text-3xl text-noir-blood">{s.value}</div>
                     <div className="typewriter text-[10px] tracking-widest mt-1">{s.label}</div>
                   </div>
                 ))}
@@ -255,13 +255,13 @@ function Index() {
         </div>
       </section>
 
-      <section id="lab" className="scroll-mt-28 px-4 py-16">
+      <section id="lab" className="scroll-mt-20 sm:scroll-mt-28 px-3 sm:px-4 py-10 sm:py-16">
         <div className="max-w-6xl mx-auto">
-          <header className="text-center mb-10">
-            <p className="typewriter text-noir-gold tracking-[0.5em] text-xs">SECTION III</p>
-            <h2 className="headline-serif text-5xl md:text-6xl mt-2">Fingerprint Lab</h2>
+          <header className="text-center mb-6 sm:mb-10">
+            <p className="typewriter text-noir-gold tracking-[0.3em] sm:tracking-[0.5em] text-[10px] sm:text-xs">SECTION III</p>
+            <h2 className="headline-serif text-3xl sm:text-5xl md:text-6xl mt-2">Fingerprint Lab</h2>
           </header>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {labEvidence.map((card, i) => (
               <motion.div
                 key={card.title}
@@ -307,20 +307,20 @@ function Index() {
         </div>
       </section>
 
-      <section id="cases" className="scroll-mt-28 px-4 py-16">
+      <section id="cases" className="scroll-mt-20 sm:scroll-mt-28 px-3 sm:px-4 py-10 sm:py-16">
         <div className="max-w-6xl mx-auto">
-          <header className="text-center mb-10">
-            <p className="typewriter text-noir-gold tracking-[0.5em] text-xs">SECTION IV</p>
-            <h2 className="headline-serif text-5xl md:text-6xl mt-2">Case Files</h2>
+          <header className="text-center mb-6 sm:mb-10">
+            <p className="typewriter text-noir-gold tracking-[0.3em] sm:tracking-[0.5em] text-[10px] sm:text-xs">SECTION IV</p>
+            <h2 className="headline-serif text-3xl sm:text-5xl md:text-6xl mt-2">Case Files</h2>
           </header>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {homeCases.map((card, i) => (
               <motion.div
                 key={card.title}
                 initial={{ opacity: 0, y: 30, rotate: i % 2 ? -2 : 2 }}
                 whileInView={{ opacity: 1, y: 0, rotate: i % 2 ? -1 : 1 }}
                 viewport={{ once: true }}
-                className="manila relative p-5 text-left aspect-[4/3] flex flex-col"
+                className="manila relative p-4 sm:p-5 text-left sm:aspect-[4/3] flex flex-col"
               >
                 <span className="absolute -top-3 left-6 bg-[#c8a96b] border-2 border-noir-ink/30 px-4 py-1 typewriter text-[10px] tracking-widest text-noir-ink">
                   CASE
@@ -331,7 +331,7 @@ function Index() {
                   {card.solved ? "SOLVED" : "UNSOLVED"}
                 </span>
                 <p className="typewriter text-[10px] tracking-widest text-noir-ink/70 mt-6">{card.incident}</p>
-                <h3 className="headline-serif text-2xl text-noir-ink mt-2 leading-tight">{card.title}</h3>
+                <h3 className="headline-serif text-xl sm:text-2xl text-noir-ink mt-2 leading-tight">{card.title}</h3>
                 <p className="typewriter text-xs text-noir-ink/80 mt-3">{card.summary}</p>
                 {card.tags.length ? (
                   <div className="mt-4">
@@ -370,13 +370,13 @@ function Index() {
         </div>
       </section>
 
-      <section id="chronicle" className="scroll-mt-28 px-4 py-16">
+      <section id="chronicle" className="scroll-mt-20 sm:scroll-mt-28 px-3 sm:px-4 py-10 sm:py-16">
         <div className="max-w-5xl mx-auto">
-          <header className="text-center mb-12">
-            <p className="typewriter text-noir-gold tracking-[0.5em] text-xs">SECTION V</p>
-            <h2 className="headline-serif text-5xl md:text-6xl mt-2">The Chronicle</h2>
+          <header className="text-center mb-8 sm:mb-12">
+            <p className="typewriter text-noir-gold tracking-[0.3em] sm:tracking-[0.5em] text-[10px] sm:text-xs">SECTION V</p>
+            <h2 className="headline-serif text-3xl sm:text-5xl md:text-6xl mt-2">The Chronicle</h2>
           </header>
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {[
               {
                 title: "AI Software Engineer Intern at Wortholic (Duration: 1.5 Months)",
@@ -394,14 +394,14 @@ function Index() {
                 initial={{ opacity: 0, y: 40, rotate: i % 2 ? 2 : -2 }}
                 whileInView={{ opacity: 1, y: 0, rotate: i % 2 ? 1 : -1 }}
                 viewport={{ once: true }}
-                className="paper relative p-6 md:p-8 max-w-3xl"
-                style={{ marginLeft: i % 2 ? "auto" : "0" }}
+                className="paper relative p-4 sm:p-6 md:p-8 max-w-3xl mx-auto sm:mx-0"
+                style={{ marginLeft: i % 2 ? "auto" : undefined }}
               >
                 <span className="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-noir-blood shadow-lg ring-1 ring-black/40" />
                 <div className="border-b-4 border-double border-noir-ink/40 pb-2">
                   <span className="typewriter text-[10px] tracking-[0.4em]">{item.label}</span>
                 </div>
-                <h3 className="headline-serif text-3xl md:text-4xl mt-3 leading-tight">{item.title}</h3>
+                <h3 className="headline-serif text-xl sm:text-3xl md:text-4xl mt-3 leading-tight">{item.title}</h3>
                 {item.body ? (
                   <p className="mt-3 text-noir-ink leading-relaxed text-sm md:text-base">{item.body}</p>
                 ) : null}
@@ -411,21 +411,21 @@ function Index() {
         </div>
       </section>
 
-      <section id="telegraph" className="scroll-mt-28 px-4 py-16">
+      <section id="telegraph" className="scroll-mt-20 sm:scroll-mt-28 px-3 sm:px-4 py-10 sm:py-16">
         <div className="max-w-3xl mx-auto">
-          <header className="text-center mb-10">
-            <p className="typewriter text-noir-gold tracking-[0.5em] text-xs">SECTION VI</p>
-            <h2 className="headline-serif text-5xl md:text-6xl mt-2">Send a Telegraph</h2>
+          <header className="text-center mb-6 sm:mb-10">
+            <p className="typewriter text-noir-gold tracking-[0.3em] sm:tracking-[0.5em] text-[10px] sm:text-xs">SECTION VI</p>
+            <h2 className="headline-serif text-3xl sm:text-5xl md:text-6xl mt-2">Send a Telegram</h2>
           </header>
           <motion.div
             initial={{ y: 40, opacity: 0, rotate: 1 }}
             whileInView={{ y: 0, opacity: 1, rotate: 0 }}
             viewport={{ once: true }}
-            className="paper relative p-8 text-center"
+            className="paper relative p-5 sm:p-8 text-center"
           >
-            <div className="tape absolute -top-4 left-10 w-28 h-7" />
+            <div className="tape absolute -top-4 left-6 sm:left-10 w-20 sm:w-28 h-6 sm:h-7" />
             <p className="typewriter text-[10px] tracking-[0.4em] text-noir-ink/70">WESTERN UNION</p>
-            <p className="headline-serif text-2xl text-noir-ink mt-2">— TELEGRAM —</p>
+            <p className="headline-serif text-xl sm:text-2xl text-noir-ink mt-2">— TELEGRAM —</p>
             <p className="mt-5 text-noir-ink leading-relaxed">
               For collaborations, freelance casework, or a stubborn interface that needs proper investigation, send word.
             </p>

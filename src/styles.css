@@ -436,3 +436,47 @@
   .noir-bg .pendulum,
   .noir-bg .blinds { animation: none; }
 }
+
+/* ===== Mobile / responsive overrides ===== */
+
+/* Smooth scroll for anchor navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Disable custom cursors on touch devices — they don't render anyway */
+@media (pointer: coarse) {
+  body,
+  a,
+  button,
+  .magnify-cursor {
+    cursor: auto !important;
+  }
+}
+
+/* Safe-area support for notched phones (iPhone etc.) */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Reduce heavy visual effects on small screens for performance */
+@media (max-width: 640px) {
+  .noir-bg .searchlight {
+    display: none;
+  }
+  .noir-bg .smoke {
+    opacity: 0.4;
+  }
+  .noir-bg .blinds {
+    display: none;
+  }
+  .vignette::after {
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%);
+  }
+  .film-grain::before {
+    opacity: 0.04;
+  }
+}

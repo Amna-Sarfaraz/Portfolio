@@ -82,11 +82,11 @@ function Cases() {
       <section className="px-4 max-w-6xl mx-auto">
         <header className="text-center mb-10">
           <p className="typewriter text-noir-gold tracking-[0.5em] text-xs">SECTION IV</p>
-          <h1 className="headline-serif text-5xl md:text-6xl mt-2">Case Files</h1>
+          <h1 className="headline-serif text-3xl sm:text-5xl md:text-6xl mt-2">Case Files</h1>
           <p className="typewriter text-noir-gold/60 mt-3 text-sm">// CLICK A FOLDER TO OPEN</p>
         </header>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {cases.map((c, i) => (
             <motion.button
               key={c.id}
@@ -97,7 +97,7 @@ function Cases() {
               viewport={{ once: true }}
               whileHover={{ y: -6, rotate: 0, scale: 1.02 }}
               transition={{ delay: i * 0.05 }}
-              className="manila relative p-5 text-left aspect-[4/3] flex flex-col"
+              className="manila relative p-4 sm:p-5 text-left sm:aspect-[4/3] flex flex-col"
             >
               {/* folder tab */}
               <span className="absolute -top-3 left-6 bg-[#c8a96b] border-2 border-noir-ink/30 px-4 py-1 typewriter text-[10px] tracking-widest text-noir-ink">
@@ -106,7 +106,7 @@ function Cases() {
               <div className={`stamp ${stampColor(c.status)} self-end text-xs`}>
                 {c.status}
               </div>
-              <h3 className="headline-serif text-2xl text-noir-ink mt-3 leading-tight">
+              <h3 className="headline-serif text-xl sm:text-2xl text-noir-ink mt-3 leading-tight">
                 {c.title}
               </h3>
               <p className="typewriter text-xs text-noir-ink/80 mt-2 line-clamp-3">
@@ -133,7 +133,7 @@ function Cases() {
           return (
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[200] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+              className="fixed inset-0 z-[200] bg-black/85 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto"
               onClick={() => setOpen(null)}
             >
               <motion.div
@@ -142,7 +142,7 @@ function Cases() {
                 exit={{ scale: 0.85, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 120, damping: 16 }}
                 onClick={(e) => e.stopPropagation()}
-                className="paper relative w-full max-w-3xl p-8 my-12"
+                className="paper relative w-full max-w-3xl p-5 sm:p-8 my-6 sm:my-12"
               >
                 <div className="tape absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-7" />
                 <button
@@ -154,22 +154,22 @@ function Cases() {
                 <div className="flex justify-between items-start border-b-2 border-noir-ink/30 pb-3">
                   <div>
                     <p className="typewriter text-[10px] tracking-widest">CASE №{c.id}</p>
-                    <h2 className="headline-serif text-4xl mt-1">{c.title}</h2>
+                    <h2 className="headline-serif text-2xl sm:text-4xl mt-1">{c.title}</h2>
                   </div>
                   <div className={`stamp ${stampColor(c.status)} text-sm`}>{c.status}</div>
                 </div>
 
                 {/* fanned "polaroids" */}
-                <div className="relative h-48 my-6">
+                <div className="relative h-32 sm:h-48 my-4 sm:my-6">
                   {[0, 1, 2].map((k) => (
                     <motion.div
                       key={k}
                       initial={{ rotate: 0, x: 0, opacity: 0 }}
                       animate={{ rotate: (k - 1) * 8, x: (k - 1) * 70, opacity: 1 }}
                       transition={{ delay: 0.15 + k * 0.1 }}
-                      className="absolute left-1/2 top-2 -translate-x-1/2 w-40 bg-white p-2 pb-6 shadow-xl"
+                      className="absolute left-1/2 top-2 -translate-x-1/2 w-28 sm:w-40 bg-white p-1.5 sm:p-2 pb-4 sm:pb-6 shadow-xl"
                     >
-                      <div className="w-full h-28 bg-gradient-to-br from-zinc-700 via-zinc-900 to-black" />
+                      <div className="w-full h-20 sm:h-28 bg-gradient-to-br from-zinc-700 via-zinc-900 to-black" />
                       <p className="handwritten text-noir-ink text-sm mt-1 text-center">exhibit {String.fromCharCode(65 + k)}</p>
                     </motion.div>
                   ))}
@@ -189,7 +189,7 @@ function Cases() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex flex-wrap gap-3 border-t-2 border-noir-ink/30 pt-4">
+                <div className="mt-6 flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 border-t-2 border-noir-ink/30 pt-4">
                   <a href={`https://${c.repo}`} className="typewriter bg-noir-black text-noir-paper px-4 py-2 text-xs tracking-widest hover:bg-noir-blood transition">
                     🔍 CRIME SCENE REPORT
                   </a>

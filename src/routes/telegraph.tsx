@@ -92,16 +92,16 @@ function Telegraph() {
       <section className="px-4 max-w-3xl mx-auto">
         <header className="text-center mb-10">
           <p className="typewriter text-noir-gold tracking-[0.5em] text-xs">SECTION VI</p>
-          <h1 className="headline-serif text-5xl md:text-6xl mt-2">Send a Telegraph</h1>
+          <h1 className="headline-serif text-3xl sm:text-5xl md:text-6xl mt-2">Send a Telegraph</h1>
         </header>
 
         <motion.div
           initial={{ y: 40, opacity: 0, rotate: 1 }}
           whileInView={{ y: 0, opacity: 1, rotate: 0 }}
           viewport={{ once: true }}
-          className="paper relative p-8"
+          className="paper relative p-5 sm:p-8"
         >
-          <div className="tape absolute -top-4 left-10 w-28 h-7" />
+          <div className="tape absolute -top-4 left-6 sm:left-10 w-20 sm:w-28 h-6 sm:h-7" />
           <div className="border-b-4 border-double border-noir-ink/40 pb-3 flex justify-between">
             <div>
               <p className="typewriter text-[10px] tracking-[0.4em]">WESTERN UNION</p>
@@ -148,18 +148,18 @@ function Telegraph() {
                 </p>
               ) : null}
 
-              <div className="flex items-center justify-between pt-2">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
                 <div className="flex items-center gap-3">
                   {/* wax seal */}
                   <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-noir-blood to-red-950 ring-2 ring-noir-ink/40 flex items-center justify-center shadow-lg">
                     <span className="headline-serif text-noir-paper text-xl">A.M.</span>
                   </div>
-                  <span className="handwritten text-noir-ink text-lg">sealed in confidence</span>
+                  <span className="handwritten text-noir-ink text-base sm:text-lg">sealed in confidence</span>
                 </div>
                 <button
                   type="submit"
                   disabled={isSending}
-                  className="typewriter bg-noir-black text-noir-paper px-6 py-3 text-xs tracking-[0.3em] hover:bg-noir-blood transition shadow-lg"
+                  className="typewriter bg-noir-black text-noir-paper px-5 sm:px-6 py-3 text-xs tracking-[0.3em] hover:bg-noir-blood transition shadow-lg w-full sm:w-auto text-center"
                 >
                   {isSending ? "TRANSMITTING..." : "DISPATCH MESSAGE →"}
                 </button>

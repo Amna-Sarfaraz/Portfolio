@@ -205,7 +205,7 @@ function Index() {
             <div className="space-y-5 text-noir-ink">
               <div className="flex items-center justify-between gap-2 sm:gap-4">
                 <h3 className="headline-serif text-xl sm:text-3xl">SUBJECT BRIEFING</h3>
-                <span className="stamp stamp-cleared text-base sm:text-2xl">CLEARED</span>
+
               </div>
               <div className="ledger-rule pb-4">
                 <h4 className="headline-serif text-2xl sm:text-4xl">Amna Muhammad</h4>

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { Bot, BriefcaseBusiness, GraduationCap, Layers3 } from "lucide-react";
 import { NoirShell } from "@/components/NoirShell";
 
 export const Route = createFileRoute("/dossier")({
@@ -13,10 +14,10 @@ export const Route = createFileRoute("/dossier")({
 });
 
 const stats = [
-  { label: "Cases Solved", value: "84" },
-  { label: "Years Investigating", value: "07" },
-  { label: "Technologies Mastered", value: "29" },
-  { label: "Active Operations", value: "03" },
+  { label: "Projects Solved", value: "5+", icon: BriefcaseBusiness },
+  { label: "Specialisation", value: "LLM · RAG · APIs", icon: Bot },
+  { label: "Expected 2028", value: "B.E. SE", icon: GraduationCap },
+  { label: "Active Projects", value: "3", icon: Layers3 },
 ];
 
 function Dossier() {
@@ -43,48 +44,53 @@ function Dossier() {
             <div className="typewriter text-xs tracking-widest">CLASSIFIED</div>
           </div>
 
-          <div className="grid md:grid-cols-[200px_1fr] gap-8 mt-8">
-            <div className="relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8">
-                <div className="w-8 h-8 rounded-full bg-zinc-400 ring-2 ring-zinc-700 shadow" />
-              </div>
-              <div className="bg-noir-ink aspect-[3/4] flex items-end p-2 shadow-xl" style={{ transform: "rotate(-2deg)" }}>
-                <div className="w-full h-full bg-gradient-to-b from-zinc-700 to-zinc-900 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center text-noir-gold/40 text-7xl">?</div>
-                  <div className="absolute bottom-0 inset-x-0 bg-black/80 text-noir-paper text-[10px] typewriter p-1 text-center tracking-widest">
-                    MORENO, J.
-                  </div>
-                </div>
-              </div>
-              <p className="handwritten text-xl text-noir-blood mt-2 text-center">"the consultant"</p>
+          <div className="mt-8 space-y-5 text-noir-ink">
+            <div className="flex items-center justify-between gap-4">
+              <h2 className="headline-serif text-3xl">SUBJECT BRIEFING</h2>
+              <span className="stamp stamp-cleared">CLEARED</span>
             </div>
-
-            <div className="space-y-4 typewriter text-noir-ink">
-              <div className="flex items-center justify-between">
-                <h2 className="headline-serif text-3xl">CASE PROFILE</h2>
-                <span className="stamp stamp-cleared">CLEARED FOR HIRE</span>
-              </div>
-              <p className="leading-relaxed">
-                <strong>Subject</strong> operates under the alias <em>"consulting engineer"</em>. Specializes
-                in extracting confessions from stubborn codebases. Known associates include React, Python,
-                and a particularly chatty PostgreSQL database.
-              </p>
-              <p className="leading-relaxed">
-                Last seen pursuing a memory leak across three continents. Reportedly armed with
-                a debugger and an unhealthy quantity of black coffee. Approach with interesting problems.
-              </p>
-              <p className="handwritten text-2xl text-noir-blood">
-                "Every bug leaves a trail. You just have to know where to look."
-              </p>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
-                {stats.map((s) => (
-                  <div key={s.label} className="border-2 border-noir-ink/40 p-3 bg-noir-paper-dark/40">
-                    <div className="headline-serif text-3xl text-noir-blood">{s.value}</div>
-                    <div className="typewriter text-[10px] tracking-widest mt-1">{s.label}</div>
+            <div className="ledger-rule pb-4">
+              <h3 className="headline-serif text-4xl">Amna Muhammad</h3>
+            </div>
+            <p className="leading-relaxed text-base md:text-lg">
+              Software Engineering undergraduate at NED University, Karachi. Focused on AI systems,
+              backend development, and intelligent application design. Experienced in building
+              API-driven systems and integrating LLM-based features into real-world applications.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-1">
+              <a
+                href="https://github.com/Amna-Sarfaraz"
+                target="_blank"
+                rel="noreferrer"
+                className="typewriter border border-noir-ink/30 px-3 py-1.5 text-[10px] tracking-widest text-noir-ink hover:bg-noir-ink hover:text-noir-paper transition"
+              >
+                GITHUB
+              </a>
+              <a
+                href="https://linkedin.com/in/amna-muhammad123"
+                target="_blank"
+                rel="noreferrer"
+                className="typewriter border border-noir-ink/30 px-3 py-1.5 text-[10px] tracking-widest text-noir-ink hover:bg-noir-ink hover:text-noir-paper transition"
+              >
+                LINKEDIN
+              </a>
+              <a
+                href="mailto:mohammadamna54@gmail.com"
+                className="typewriter border border-noir-ink/30 px-3 py-1.5 text-[10px] tracking-widest text-noir-ink hover:bg-noir-ink hover:text-noir-paper transition"
+              >
+                EMAIL
+              </a>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+              {stats.map((s) => (
+                <div key={s.label} className="border-2 border-noir-ink/40 p-3 bg-noir-paper-dark/40">
+                  <div className="mb-3 inline-flex items-center justify-center rounded-full border border-noir-ink/30 p-2 text-noir-ink/80">
+                    <s.icon className="h-5 w-5" strokeWidth={1.8} />
                   </div>
-                ))}
-              </div>
+                  <div className="headline-serif text-3xl text-noir-blood">{s.value}</div>
+                  <div className="typewriter text-[10px] tracking-widest mt-1">{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </motion.article>

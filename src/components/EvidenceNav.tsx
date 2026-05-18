@@ -2,12 +2,12 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 
 const items = [
-  { to: "/", label: "Hero", note: "OPEN", rotate: -6, color: "bg-yellow-100" },
-  { to: "/dossier", label: "Dossier", note: "DOSSIER", rotate: 4, color: "bg-amber-100" },
-  { to: "/lab", label: "Fingerprint Lab", note: "LAB", rotate: -3, color: "bg-stone-100" },
-  { to: "/cases", label: "Case Files", note: "CASES", rotate: 5, color: "bg-orange-100" },
-  { to: "/chronicle", label: "Chronicle", note: "PRESS", rotate: -4, color: "bg-yellow-50" },
-  { to: "/telegraph", label: "Telegraph", note: "WIRE", rotate: 3, color: "bg-amber-50" },
+  { href: "/#hero", note: "OPEN", rotate: -6, color: "bg-yellow-100" },
+  { href: "/#dossier", note: "PROFILE", rotate: 4, color: "bg-amber-100" },
+  { href: "/#lab", note: "LAB", rotate: -3, color: "bg-stone-100" },
+  { href: "/#cases", note: "CASES", rotate: 5, color: "bg-orange-100" },
+  { href: "/#chronicle", note: "PRESS", rotate: -4, color: "bg-yellow-50" },
+  { href: "/#telegraph", note: "WIRE", rotate: 3, color: "bg-amber-50" },
 ] as const;
 
 export function EvidenceNav() {
@@ -23,26 +23,26 @@ export function EvidenceNav() {
           <div className="absolute left-6 right-6 top-1/2 string" style={{ transform: "rotate(-1deg)" }} />
           <div className="relative flex items-center justify-between gap-2 flex-wrap">
             <Link to="/" className="typewriter text-noir-gold text-sm tracking-[0.3em] px-2">
-              ◆ THE CASE
+              ◆ AMNA
             </Link>
             <div className="flex flex-wrap gap-2">
               {items.slice(1).map((it) => {
-                const active = loc.pathname === it.to;
+                const active = loc.pathname === "/" && loc.href.includes(it.href.slice(1));
                 return (
                   <motion.div
-                    key={it.to}
+                    key={it.href}
                     whileHover={{ rotate: 0, scale: 1.08, y: -2 }}
                     style={{ rotate: it.rotate }}
                     className="relative"
                   >
                     {/* pin */}
                     <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-noir-blood shadow-md ring-1 ring-black/40 z-10" />
-                    <Link
-                      to={it.to}
+                    <a
+                      href={it.href}
                       className={`${it.color} block typewriter text-[10px] tracking-widest px-3 py-1 text-noir-ink shadow-md ${active ? "ring-2 ring-noir-blood" : ""}`}
                     >
                       {it.note}
-                    </Link>
+                    </a>
                   </motion.div>
                 );
               })}

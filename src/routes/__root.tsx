@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { siteContent } from "@/lib/site-content";
 
 function NotFoundComponent() {
   return (
@@ -72,10 +73,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "The Detective | Consulting Engineer" },
-      { name: "description", content: "A confidential dossier of a developer-detective. Case files, evidence, and unsolved mysteries of modern software." },
-      { property: "og:title", content: "The Detective | Consulting Engineer" },
-      { property: "og:description", content: "An interactive noir investigation portfolio." },
+      { title: `${siteContent.identity.name} | ${siteContent.identity.title}` },
+      { name: "description", content: siteContent.identity.tagline },
+      { property: "og:title", content: `${siteContent.identity.name} | ${siteContent.identity.title}` },
+      { property: "og:description", content: siteContent.identity.tagline },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -83,7 +84,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Special+Elite&family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&family=Caveat:wght@500;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css2?family=Special+Elite&family=Cormorant+Garamond:wght@500;600;700&family=Libre+Baskerville:wght@400;700&family=Caveat:wght@500;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
